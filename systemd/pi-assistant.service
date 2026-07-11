@@ -1,0 +1,15 @@
+[Unit]
+Description=Hey Pi Supermemory voice assistant
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/rpisupercompress
+EnvironmentFile=%h/rpisupercompress/.env
+ExecStart=%h/rpisupercompress/.venv/bin/pi-assistant
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

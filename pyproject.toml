@@ -1,0 +1,39 @@
+[project]
+name = "rpi-supermemory-assistant"
+version = "0.1.0"
+description = "Wake-word Raspberry Pi assistant backed by Supermemory Local, Groq, and Composio."
+requires-python = ">=3.11"
+dependencies = [
+  "groq>=0.13.0",
+  "python-dotenv>=1.0.1",
+  "requests>=2.32.3",
+  "sounddevice>=0.4.7",
+  "soundfile>=0.12.1",
+]
+
+[project.optional-dependencies]
+pi = [
+  "pvporcupine>=3.0.5",
+  "pvrecorder>=1.2.4",
+  "composio>=0.8.0",
+  "composio-langchain>=0.8.0",
+  "langchain>=0.3.0",
+  "langchain-groq>=0.2.0",
+]
+dev = [
+  "pytest>=8.3.0",
+  "ruff>=0.5.0",
+]
+
+[project.scripts]
+pi-assistant = "pi_memory_assistant.app:main"
+pi-assistant-console = "pi_memory_assistant.dev_console:main"
+pi-assistant-demo = "pi_memory_assistant.demo:main"
+pi-assistant-doctor = "pi_memory_assistant.doctor:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
