@@ -5,133 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Pi Recall is a Raspberry Pi voice assistant that remembers through Supermemory Local."
+      content="Pi Recall is a Raspberry Pi voice assistant with long-term memory powered by Supermemory Local."
     />
     <title>Pi Recall | Supermemory Local Voice Agent</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <header class="topbar" aria-label="Primary navigation">
-      <a class="wordmark" href="#top" aria-label="Pi Recall home">
-        <span class="mark"></span>
-        Pi Recall
+    <header class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Pi Recall home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Pi Recall</span>
       </a>
-      <nav>
+      <nav class="nav-links">
+        <a href="#memory">Memory</a>
         <a href="#architecture">Architecture</a>
         <a href="#demo">Demo</a>
-        <a href="#ship">Ship</a>
-        <a class="repo-link" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>GitLab</a>
       </nav>
+      <div class="nav-actions">
+        <a class="ghost" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>GitLab</a>
+        <a class="solid" href="#demo">Watch flow</a>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Supermemory Local + Raspberry Pi 5</p>
-          <h1 id="hero-title">A voice assistant that remembers what the house said.</h1>
-          <p class="lede">
-            Pi Recall listens for “Hey Pi,” records the next utterance, stores every word in
-            Supermemory Local, and retrieves old context before answering out loud.
-          </p>
+        <div class="hero-left">
+          <p class="kicker">Supermemory Local assistant</p>
+          <h1 id="hero-title">
+            <span>Memory</span>
+            <span>for the</span>
+            <span>room.</span>
+          </h1>
           <div class="hero-actions">
-            <a class="button primary" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>
-              View GitLab project
+            <a class="solid large" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>
+              View source
             </a>
-            <a class="button secondary" href="#demo">Demo flow</a>
+            <a class="ghost large" href="https://pi-recall.vercel.app">Live site</a>
           </div>
         </div>
-        <div class="signal-panel" aria-label="Pi Recall memory flow visual">
-          <div class="device">
-            <div class="wake-ring"></div>
-            <div class="speaker-slots">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <p>Hey Pi</p>
-          </div>
-          <div class="pipeline">
-            <div class="node active">wake</div>
-            <div class="line"></div>
-            <div class="node">transcribe</div>
-            <div class="line"></div>
-            <div class="node memory">local memory</div>
-            <div class="line"></div>
-            <div class="node">speak</div>
-          </div>
+
+        <div class="hero-center" aria-hidden="true">
+          <div class="core-triangle"></div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+        </div>
+
+        <div class="hero-right">
+          <p>For voice agents</p>
+          <p>That remember context</p>
+          <p>Without hosted memory</p>
         </div>
       </section>
 
-      <section class="proof-strip" aria-label="Core proof points">
-        <div>
-          <strong>Local memory</strong>
-          <span>Supermemory runs on localhost, not hosted API storage.</span>
-        </div>
-        <div>
-          <strong>Free inference</strong>
-          <span>Groq handles STT, LLM, and TTS with a free-tier path.</span>
-        </div>
-        <div>
-          <strong>Real hardware</strong>
-          <span>Pi 5, mic, speaker, wake word, and systemd startup.</span>
-        </div>
+      <section class="sponsors" aria-label="Core stack">
+        <span>Raspberry Pi 5</span>
+        <span>Porcupine Wake Word</span>
+        <span>Supermemory Local</span>
+        <span>Groq</span>
+        <span>Composio</span>
       </section>
 
-      <section class="split" id="architecture">
-        <div>
-          <p class="eyebrow">Why it wins</p>
-          <h2>Memory is the product, not an add-on.</h2>
+      <section class="statement" id="memory">
+        <p class="section-label">What changes</p>
+        <h2>Every sentence becomes future context.</h2>
+        <p>
+          Pi Recall listens for “Hey Pi,” records the next utterance, stores the exact transcript in
+          the local Supermemory process, then retrieves relevant profile and memory context before
+          answering out loud.
+        </p>
+      </section>
+
+      <section class="product-grid" aria-label="Product proof">
+        <article class="panel wide">
+          <div class="panel-head">
+            <span class="status-dot"></span>
+            <span>localhost:6767</span>
+          </div>
+          <div class="memory-card">
+            <p class="small-label">Stored utterance</p>
+            <p class="memory-line">
+              “The garage sensor has been flaky since the storm. Check the battery first.”
+            </p>
+          </div>
+          <div class="query-row">
+            <span>Later query</span>
+            <strong>What should I try before replacing it?</strong>
+          </div>
+        </article>
+
+        <article class="panel dark">
+          <p class="small-label">Response</p>
+          <h3>“Check the garage sensor battery first.”</h3>
           <p>
-            Most assistants route commands. Pi Recall builds a local graph of what the user has
-            said, then injects relevant Supermemory profile and search context into every answer.
+            The answer is short because it is spoken. The context comes from Supermemory Local, not a
+            hosted memory API.
           </p>
+        </article>
+
+        <article class="panel">
+          <p class="small-label">Submission checks</p>
+          <ul class="checks">
+            <li>Wake word path</li>
+            <li>Doctor command</li>
+            <li>No-hardware demo</li>
+            <li>systemd service</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="architecture" id="architecture">
+        <div class="section-copy">
+          <p class="section-label">Architecture</p>
+          <h2>Local memory. Free inference. Real hardware.</h2>
         </div>
-        <ol class="flow-list">
-          <li><span>1</span> Porcupine detects “Hey Pi” fully locally.</li>
-          <li><span>2</span> Groq Whisper turns the bounded utterance into text.</li>
-          <li><span>3</span> Supermemory Local ingests the exact transcript.</li>
-          <li><span>4</span> The current request queries local profile and memories.</li>
-          <li><span>5</span> Groq answers, Composio tools can act, Orpheus speaks.</li>
-        </ol>
+        <div class="flow">
+          <div><span>01</span><strong>Wake</strong><p>Porcupine detects “Hey Pi” locally.</p></div>
+          <div><span>02</span><strong>Transcribe</strong><p>Groq Whisper turns audio into text.</p></div>
+          <div><span>03</span><strong>Remember</strong><p>Supermemory Local stores the utterance.</p></div>
+          <div><span>04</span><strong>Recall</strong><p>Profile and search context are retrieved.</p></div>
+          <div><span>05</span><strong>Respond</strong><p>Groq + Orpheus answer through the speaker.</p></div>
+        </div>
       </section>
 
       <section class="demo" id="demo">
         <div class="demo-copy">
-          <p class="eyebrow">Judge demo</p>
-          <h2>The moment to show on video.</h2>
+          <p class="section-label">Demo script</p>
+          <h2>The winning moment is recall.</h2>
           <p>
-            Say a household detail once. Ask indirectly later. The assistant recalls it from
-            Supermemory Local and gives the practical next step.
+            Say one household detail. Ask indirectly later. The assistant should recover the useful
+            detail from Supermemory Local and answer like it remembered.
           </p>
         </div>
         <div class="terminal" aria-label="Demo terminal transcript">
-          <div class="terminal-bar"><span></span><span></span><span></span></div>
+          <div class="terminal-top">
+            <span></span><span></span><span></span>
+          </div>
           <pre><code>$ pi-assistant-demo
-Seeding Supermemory Local:
-"My garage door sensor has been flaky since the storm..."
+Seeded local memory:
+  garage sensor flaky since the storm
+  check battery before replacing
 
-Asking later:
-"What should I try first?"
+$ user asks later
+What should I try first?
 
-Pi Recall:
-"Check the garage sensor battery before replacing it."</code></pre>
-        </div>
-      </section>
-
-      <section class="ship" id="ship">
-        <p class="eyebrow">Submission ready</p>
-        <h2>What is included</h2>
-        <div class="ship-grid">
-          <div>
-            <h3>Runnable repo</h3>
-            <p>Python package, tests, doctor command, console mode, no-hardware demo, and Pi service.</p>
-          </div>
-          <div>
-            <h3>Local-first story</h3>
-            <p>Docs explicitly state Supermemory Local is used instead of hosted Supermemory API.</p>
-          </div>
-          <div>
-            <h3>Demo assets</h3>
-            <p>Architecture notes, hackathon writeup, and a tight video script are in the repo.</p>
-          </div>
+Pi Recall
+Check the battery before replacing the sensor.</code></pre>
         </div>
       </section>
     </main>
