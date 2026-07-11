@@ -2,6 +2,9 @@
 
 An always-on Raspberry Pi voice assistant that remembers what you said weeks ago.
 
+Website: https://pi-recall.vercel.app  
+GitLab: https://gitlab.com/arjunkshah/pi-recall
+
 ## What It Does
 
 - Wake word: `Hey Pi` through offline Porcupine.

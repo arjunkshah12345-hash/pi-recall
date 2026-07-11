@@ -4,6 +4,9 @@
 
 Pi Recall is a Raspberry Pi voice assistant that uses Supermemory Local as its long-term memory, so it can remember what you said weeks ago and use that context in future spoken conversations.
 
+Website: https://pi-recall.vercel.app  
+GitLab: https://gitlab.com/arjunkshah/pi-recall
+
 ## Problem
 
 Voice assistants are useful for commands but weak at continuity. They forget preferences, home quirks, ongoing projects, and prior instructions unless every integration stores its own state. That makes them feel transactional instead of personal.
