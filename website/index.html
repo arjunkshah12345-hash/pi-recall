@@ -14,133 +14,87 @@
     <header class="nav" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Pi Recall home">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>Pi Recall</span>
+        Pi Recall
       </a>
-      <nav class="nav-links">
+      <nav>
         <a href="#memory">Memory</a>
-        <a href="#architecture">Architecture</a>
         <a href="#demo">Demo</a>
+        <a href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>GitLab</a>
       </nav>
-      <div class="nav-actions">
-        <a class="ghost" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>GitLab</a>
-        <a class="solid" href="#demo">Watch flow</a>
-      </div>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-left">
-          <p class="kicker">Supermemory Local assistant</p>
-          <h1 id="hero-title">
-            <span>Memory</span>
-            <span>for the</span>
-            <span>room.</span>
-          </h1>
-          <div class="hero-actions">
-            <a class="solid large" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>
-              View source
-            </a>
-            <a class="ghost large" href="https://pi-recall.vercel.app">Live site</a>
-          </div>
-        </div>
-
-        <div class="hero-center" aria-hidden="true">
-          <div class="core-triangle"></div>
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-        </div>
-
-        <div class="hero-right">
-          <p>For voice agents</p>
-          <p>That remember context</p>
-          <p>Without hosted memory</p>
-        </div>
-      </section>
-
-      <section class="sponsors" aria-label="Core stack">
-        <span>Raspberry Pi 5</span>
-        <span>Porcupine Wake Word</span>
-        <span>Supermemory Local</span>
-        <span>Groq</span>
-        <span>Composio</span>
-      </section>
-
-      <section class="statement" id="memory">
-        <p class="section-label">What changes</p>
-        <h2>Every sentence becomes future context.</h2>
-        <p>
-          Pi Recall listens for “Hey Pi,” records the next utterance, stores the exact transcript in
-          the local Supermemory process, then retrieves relevant profile and memory context before
-          answering out loud.
+      <section class="hero">
+        <p class="eyebrow">Supermemory Local · Raspberry Pi 5</p>
+        <h1>A voice assistant with a local memory.</h1>
+        <p class="lede">
+          Pi Recall listens for “Hey Pi,” stores every user utterance in Supermemory Local, and
+          retrieves old context before it answers out loud.
         </p>
+        <div class="actions">
+          <a class="button primary" href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>
+            View source
+          </a>
+          <a class="button" href="#demo">See demo</a>
+        </div>
       </section>
 
-      <section class="product-grid" aria-label="Product proof">
-        <article class="panel wide">
-          <div class="panel-head">
-            <span class="status-dot"></span>
-            <span>localhost:6767</span>
-          </div>
-          <div class="memory-card">
-            <p class="small-label">Stored utterance</p>
-            <p class="memory-line">
-              “The garage sensor has been flaky since the storm. Check the battery first.”
-            </p>
-          </div>
-          <div class="query-row">
-            <span>Later query</span>
-            <strong>What should I try before replacing it?</strong>
-          </div>
-        </article>
-
-        <article class="panel dark">
-          <p class="small-label">Response</p>
-          <h3>“Check the garage sensor battery first.”</h3>
-          <p>
-            The answer is short because it is spoken. The context comes from Supermemory Local, not a
-            hosted memory API.
-          </p>
-        </article>
-
-        <article class="panel">
-          <p class="small-label">Submission checks</p>
-          <ul class="checks">
-            <li>Wake word path</li>
-            <li>Doctor command</li>
-            <li>No-hardware demo</li>
-            <li>systemd service</li>
-          </ul>
-        </article>
+      <section class="proof" aria-label="Core proof points">
+        <div>
+          <span>01</span>
+          <p>Memory stays local at <code>localhost:6767</code>.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <p>Wake word runs offline. Only the utterance after “Hey Pi” is transcribed.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <p>Groq handles free-tier STT, LLM, and TTS. Composio is optional.</p>
+        </div>
       </section>
 
-      <section class="architecture" id="architecture">
+      <section class="memory" id="memory">
         <div class="section-copy">
-          <p class="section-label">Architecture</p>
-          <h2>Local memory. Free inference. Real hardware.</h2>
+          <p class="eyebrow">Memory loop</p>
+          <h2>Say it once. Ask later.</h2>
         </div>
-        <div class="flow">
-          <div><span>01</span><strong>Wake</strong><p>Porcupine detects “Hey Pi” locally.</p></div>
-          <div><span>02</span><strong>Transcribe</strong><p>Groq Whisper turns audio into text.</p></div>
-          <div><span>03</span><strong>Remember</strong><p>Supermemory Local stores the utterance.</p></div>
-          <div><span>04</span><strong>Recall</strong><p>Profile and search context are retrieved.</p></div>
-          <div><span>05</span><strong>Respond</strong><p>Groq + Orpheus answer through the speaker.</p></div>
+        <div class="window" aria-label="Memory recall example">
+          <div class="bar">
+            <span></span><span></span><span></span>
+            <p>supermemory-local</p>
+          </div>
+          <div class="rows">
+            <div class="row">
+              <span>stored</span>
+              <p>Garage sensor has been flaky since the storm. Check battery first.</p>
+            </div>
+            <div class="row">
+              <span>later</span>
+              <p>What should I try before replacing the garage sensor?</p>
+            </div>
+            <div class="row answer">
+              <span>pi</span>
+              <p>Check the battery before replacing the sensor.</p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="stack" aria-label="Architecture stack">
+        <div><span>Wake</span><p>Porcupine</p></div>
+        <div><span>Transcribe</span><p>Groq Whisper</p></div>
+        <div><span>Remember</span><p>Supermemory Local</p></div>
+        <div><span>Act</span><p>Composio</p></div>
+        <div><span>Speak</span><p>Orpheus TTS</p></div>
       </section>
 
       <section class="demo" id="demo">
-        <div class="demo-copy">
-          <p class="section-label">Demo script</p>
-          <h2>The winning moment is recall.</h2>
-          <p>
-            Say one household detail. Ask indirectly later. The assistant should recover the useful
-            detail from Supermemory Local and answer like it remembered.
-          </p>
+        <div class="section-copy">
+          <p class="eyebrow">Demo command</p>
+          <h2>Runs without Pi hardware.</h2>
         </div>
-        <div class="terminal" aria-label="Demo terminal transcript">
-          <div class="terminal-top">
-            <span></span><span></span><span></span>
-          </div>
-          <pre><code>$ pi-assistant-demo
+        <pre><code>$ pi-assistant-demo
 Seeded local memory:
   garage sensor flaky since the storm
   check battery before replacing
@@ -150,13 +104,12 @@ What should I try first?
 
 Pi Recall
 Check the battery before replacing the sensor.</code></pre>
-        </div>
       </section>
     </main>
 
     <footer>
       <span>Pi Recall</span>
-      <a href="https://gitlab.com/arjunkshah/pi-recall" data-repo-link>GitLab project</a>
+      <a href="https://pi-recall.vercel.app">pi-recall.vercel.app</a>
     </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
