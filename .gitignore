@@ -12,3 +12,4 @@ wakewords/*.ppn
 *.wav
 *.flac
 *.mp3
+.env.local

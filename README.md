@@ -54,6 +54,27 @@ pi-assistant-console
 pi-assistant-demo
 ```
 
+## Alexa+: The Same Memory, Through MCP
+
+`pi-recall-mcp` serves the household memory as a self-hosted MCP server (Streamable HTTP, MCP protocol 2025-11-25 or later), so Alexa+ can use what you told the Pi, and the Pi can use what you told Alexa+.
+
+```bash
+pip install -e .
+pi-recall-mcp                       # http://127.0.0.1:8765/mcp
+```
+
+| Tool | What it does |
+|---|---|
+| `remember(note, who?)` | Saves a fact, plan or preference ("the plumber is coming Thursday at 9") |
+| `recall(question)` | Finds what the household said before, with a short line ready to speak |
+| `household_brief()` | Standing profile plus the latest things saved |
+
+Every tool returns structured output and a `speech` field written to be read aloud. `recall` and `household_brief` are marked read-only.
+
+- **Memory backend:** Supermemory Local when `SUPERMEMORY_LOCAL_KEY` is set, otherwise a local SQLite full-text index (`~/.pi-recall/memories.db`). Set `MEMORY_BACKEND` to choose explicitly.
+- **Exposing it to Alexa+:** put it behind HTTPS (for example a Cloudflare Tunnel) and set `PI_RECALL_MCP_TOKEN`. The server refuses to bind beyond localhost without a token, and checks `Authorization: Bearer <token>` on every request.
+- **Try it without Alexa:** `npx @modelcontextprotocol/inspector`, connect to `http://127.0.0.1:8765/mcp`, and call the tools.
+
 ## Hardware Notes
 
 Use a USB mic or ReSpeaker-style array for input and a 3.5mm/HDMI/USB speaker for output. If Linux picks the wrong device, list devices with:
