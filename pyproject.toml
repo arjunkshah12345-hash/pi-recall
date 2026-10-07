@@ -9,6 +9,8 @@ dependencies = [
   "requests>=2.32.3",
   "sounddevice>=0.4.7",
   "soundfile>=0.12.1",
+  "mcp>=2.3",
+  "uvicorn>=0.30",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +32,7 @@ pi-assistant = "pi_memory_assistant.app:main"
 pi-assistant-console = "pi_memory_assistant.dev_console:main"
 pi-assistant-demo = "pi_memory_assistant.demo:main"
 pi-assistant-doctor = "pi_memory_assistant.doctor:main"
+pi-recall-mcp = "pi_memory_assistant.mcp_server:main"
 
 [tool.ruff]
 line-length = 100

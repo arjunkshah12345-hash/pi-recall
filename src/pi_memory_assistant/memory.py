@@ -37,15 +37,17 @@ class SupermemoryClient:
         )
 
     def remember_user_utterance(self, text: str) -> None:
-        payload = {
-            "content": text,
-            "containerTag": self.container_tag,
-            "metadata": {
-                "source": "raspberry-pi-voice",
-                "role": "user",
-                "capturedAt": datetime.now(timezone.utc).isoformat(),
-            },
+        self.remember(text, source="raspberry-pi-voice")
+
+    def remember(self, text: str, *, source: str, speaker: str | None = None) -> None:
+        metadata = {
+            "source": source,
+            "role": "user",
+            "capturedAt": datetime.now(timezone.utc).isoformat(),
         }
+        if speaker:
+            metadata["speaker"] = speaker
+        payload = {"content": text, "containerTag": self.container_tag, "metadata": metadata}
         response = self.session.post(f"{self.base_url}/v3/documents", json=payload, timeout=20)
         response.raise_for_status()
 
