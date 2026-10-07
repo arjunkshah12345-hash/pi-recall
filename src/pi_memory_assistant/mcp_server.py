@@ -187,7 +187,7 @@ def main() -> None:
     app = server.streamable_http_app(host=args.host)
     if token:
         app = BearerAuth(app, token)
-    print(f"Pi Recall MCP on http://{args.host}:{args.port}/mcp  (memory: {store.name}, auth: {'bearer' if token else 'none, localhost only'})")
+    print(f"Pi Recall MCP on http://{args.host}:{args.port}/mcp  (memory: {store.name}, auth: {'bearer' if token else 'none, localhost only'})", flush=True)
     uvicorn.run(app, host=args.host, port=args.port, log_level="warning")
 
 
