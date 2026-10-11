@@ -7,7 +7,7 @@ import socket
 import threading
 import time
 
-import httpx2
+import httpx
 import pytest
 import uvicorn
 from mcp import ClientSession
@@ -44,7 +44,7 @@ def server_url():
 
 async def _session_call(url, fn):
     async with (
-        httpx2.AsyncClient(headers={"Authorization": f"Bearer {TOKEN}"}) as http,
+        httpx.AsyncClient(headers={"Authorization": f"Bearer {TOKEN}"}) as http,
         streamable_http_client(url, http_client=http) as (read, write, *_),
         ClientSession(read, write) as session,
     ):
@@ -89,7 +89,7 @@ def test_remember_then_recall_round_trip(server_url):
 
 
 def test_requests_without_token_are_rejected(server_url):
-    response = httpx2.post(server_url, json={"jsonrpc": "2.0", "id": 1, "method": "ping"})
+    response = httpx.post(server_url, json={"jsonrpc": "2.0", "id": 1, "method": "ping"})
     assert response.status_code == 401
 
 
